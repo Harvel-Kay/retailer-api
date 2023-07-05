@@ -31,7 +31,9 @@ userRoute.delete("/:user_id", login, async (req, res) => {
   if (!mongoose.isValidObjectId(user_id))
     return res.status(400).send("Invalid User...");
 
-  const user = await User.findByIdAndDelete(user_id);
+  const user = await User.findOneAndDelete({
+    $and: [{ _id: user_id }, { email: { $ne: "harvekay1@gmail.com" } }],
+  });
   if (!user) return res.status(404).send("User doesn't exist...");
 
   res.send(_.pick(user, ["_id", "username", ""]));
