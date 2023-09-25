@@ -1,2 +1,5 @@
 node_modules/
 
+error.log
+exceptions.log
+retailer.log

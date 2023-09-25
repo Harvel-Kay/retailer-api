@@ -10,6 +10,7 @@ const genreRoute = require("./genre");
 const productRoute = require("./product");
 const saleRoute = require("./sales");
 const tagRoute = require("./tags");
+const sumRoute = require("./summary");
 
 module.exports = function (app) {
   return (
@@ -29,6 +30,7 @@ module.exports = function (app) {
     app.use("/retail/genres", genreRoute),
     app.use("/retail/products", productRoute),
     app.use("/retail/sales", saleRoute),
+    app.use("/retail/summary", sumRoute),
     app.use("/retail/tags", tagRoute),
     app.use(error_handler)
   );

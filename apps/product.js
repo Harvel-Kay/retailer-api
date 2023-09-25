@@ -46,14 +46,14 @@ productRoute.post("/", login, async (req, res) => {
 productRoute.put("/:prod_id", login, async (req, res) => {
   // validate user permisions
 
-  const { numberInStock } = req.body;
+  const { numberInStock,name,price } = req.body;
 
   const exists = await Product.findById(req.params.prod_id);
   if (!exists) return res.status(404).send("Product doesn't exist");
 
   const updated = await Product.findOneAndUpdate(
     { _id: exists._id },
-    { $set: { numberInStock } },
+    { $set: { numberInStock,name,price, } },
     { new: true }
   );
 

@@ -30,7 +30,7 @@ tagRoute.post("/", login, upload.single("prod_tag"), async (req, res) => {
   );
   file.path = tag_path;
 
-  // console.log();
+  // console.log("File saved => ", file);
   res.send(_.pick(file, ["path", "filename"]));
 });
 

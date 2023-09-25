@@ -9,7 +9,7 @@ const {
 } = require("./transports");
 
 const tracker = winston.createLogger({
-  exitOnError: true,
+  exitOnError: false,
   transports: [errorLog, exceptionLog, retailerLog, consoleLog],
   level: "info",
   format: combine(json(), colorize(), simple()),

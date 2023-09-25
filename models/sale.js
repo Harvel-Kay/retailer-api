@@ -30,6 +30,7 @@ const cartProdSchema = new mongoose.Schema({
     required: true,
     required: true,
   },
+  
 });
 
 const saleSchema = new mongoose.Schema({
