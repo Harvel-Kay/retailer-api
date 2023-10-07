@@ -38,8 +38,13 @@ const prodSchema = new mongoose.Schema({
   },
   tag: {
     type: String,
-    // minLength: [3, "Name is too short"],
-    maxLength: [1024, "Name is too long"],
+    maxLength: [1024, "Tag Name is too long"],
+    trim: true,
+    default: "",
+  },
+  thumbnail:{
+    type: String,
+    maxLength: [1024, "Thumb Name is too long"],
     trim: true,
     default: "",
   },

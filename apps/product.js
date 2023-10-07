@@ -7,11 +7,24 @@ const fs = require("node:fs");
 const config = require("config");
 const login = require("../middleware/auth");
 
-productRoute.get("/", login, async (req, res) => {
-  // validate user login
+productRoute.get("/:current_p", login, async (req, res) => {
 
-  const products = await Product.find().select(["-transactions", "-__v"]);
-  res.send(products);
+  // validate user login
+  const current_p = req.params.current_p
+  const pageSize = 20;
+  const startIndex = ( current_p -1 )*pageSize 
+const page = current_p+1
+
+  const products = await Product.find().select(["-transactions", "-__v"]).skip(startIndex).limit(pageSize);
+  const total = await Product.countDocuments()
+  if (!products || total ) return res.status(500).send("oops try again,Appologies..... ")
+  
+  const lastPage = Math.ceil(total/pageSize)
+
+  const response = {
+    products,page,lastPage
+  }
+  res.send(response);
 });
 
 productRoute.post("/", login, async (req, res) => {
