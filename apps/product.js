@@ -10,30 +10,44 @@ const login = require("../middleware/auth");
 productRoute.get("/:current_p", login, async (req, res) => {
 
   // validate user login
-  const current_p = req.params.current_p
-  const pageSize = 20;
+  const current_p = parseInt(req.params.current_p)
+  const pageSize = 3;
   const startIndex = ( current_p -1 )*pageSize 
-const page = current_p+1
 
   const products = await Product.find().select(["-transactions", "-__v"]).skip(startIndex).limit(pageSize);
   const total = await Product.countDocuments()
-  if (!products || total ) return res.status(500).send("oops try again,Appologies..... ")
+  if (!products || !total ) return res.status(500).send("oops try again,Appologies..... ")
   
-  const lastPage = Math.ceil(total/pageSize)
+  const last_page = Math.ceil(total / pageSize)
+  
+  let page = 1
+  if( last_page !== 1)
+   page = current_p + 1
 
   const response = {
-    products,page,lastPage
+    products,page,last_page
   }
   res.send(response);
 });
 
+
+productRoute.get('/search/:name', async(req, res) => {
+  const query = new RegExp(req.params.name,'i')
+  
+  const found = await Product.find({
+    name: {$regex:query }})
+  
+  if (!found) return res.status(500).send("Oops there might be something wrong !, try again")
+
+  res.send(found)
+})
+
 productRoute.post("/", login, async (req, res) => {
-  // validate user login
 
   const { error } = validateProduct(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  const { name, genre_id, price, tag, numberInStock } = req.body;
+  const { name, genre_id, price, tag,thumbnail, numberInStock } = req.body;
 
   const nameTaken = await Product.findOne({ name: case_it(name) });
   if (nameTaken) return res.status(400).send("Duplicate name...");
@@ -50,6 +64,7 @@ productRoute.post("/", login, async (req, res) => {
     price,
     numberInStock,
     tag,
+    thumbnail
   });
 
   await newProduct.save();

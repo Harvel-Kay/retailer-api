@@ -6,6 +6,8 @@ const config = require("config");
 const _ = require("lodash");
 const login = require("../middleware/auth");
 const dir = "public/tags";
+const sharp = require("sharp")
+const fs = require('fs')
 
 const storage = multer.diskStorage({
   destination: dir,
@@ -23,15 +25,19 @@ const upload = multer({ storage });
 tagRoute.post("/", login, upload.single("prod_tag"), async (req, res) => {
   // validate user
   const { file } = req;
+  const public_url = config.get("public_url")
   const file_path = path.resolve(file.path);
-  const tag_path = file_path.replace(
-    path.resolve("public"),
-    config.get("public_url")
-  );
-  file.path = tag_path;
 
-  // console.log("File saved => ", file);
-  res.send(_.pick(file, ["path", "filename"]));
+  file.path = file.path.replace("public", public_url);
+
+  // Thumbnail creation
+  let thumb_p = `public/thumbnails/${file.originalname}`
+  fs.appendFile(thumb_p,"","utf8",()=>{})
+  const tnail = await sharp(file_path).resize(320).toFile(thumb_p)
+  if (!tnail) return res.status(500).send("Sorry ,Timed Out ,try again...")
+  const tnail_p = thumb_p.replace("public", public_url);
+  
+  res.send({ path:file.path,thumbnail:tnail_p });
 });
 
 module.exports = tagRoute;

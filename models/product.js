@@ -7,6 +7,7 @@ const validateProduct = function (obj) {
     name: Joi.string().min(3).max(20).trim().required(),
     genre_id: Joi.objectid(),
     tag: Joi.string().max(1024),
+    thumbnail: Joi.string().max(1024),
     price: Joi.number().min(0).required(),
     numberInStock: Joi.number().min(0).integer().required(),
   }).validate(obj);
