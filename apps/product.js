@@ -7,25 +7,28 @@ const fs = require("node:fs");
 const config = require("config");
 const login = require("../middleware/auth");
 const { generateThumb } = require("../utils/gen/thumbnail");
+const { paginate } = require("../utils/gen/paginator");
 const pageSize = 3;
 
 productRoute.get("/:current_p", login, async (req, res) => {
   // validate user login
-  const current_p = parseInt(req.params.current_p);
-  const startIndex = (current_p - 1) * pageSize;
+  const { current_p } = req.params;
+  const total = await Product.countDocuments();
+  const { current, startIndex, last_page } = paginate(
+    current_p,
+    pageSize,
+    total
+  );
 
   const products = await Product.find()
     .select(["-transactions", "-__v"])
     .skip(startIndex)
     .limit(pageSize);
-  const total = await Product.countDocuments();
   if (!products || !total)
     return res.status(500).send("oops try again,Appologies..... ");
 
-  const last_page = Math.ceil(total / pageSize);
-
   let page = 1;
-  if (last_page !== 1) page = current_p + 1;
+  if (last_page !== 1) page = current + 1;
 
   const response = {
     products,
@@ -35,19 +38,67 @@ productRoute.get("/:current_p", login, async (req, res) => {
   res.send(response);
 });
 
-productRoute.get("/search/:name", async (req, res) => {
-  const query = new RegExp(req.params.name, "i");
+productRoute.get("/search/:name/:search_p", async (req, res) => {
+  const { name, search_p } = req.params;
+  const query = new RegExp(name, "i");
 
-  const found = await Product.find({
+  const { current, startIndex } = paginate(search_p, pageSize, 0);
+  const products = await Product.find({
     name: { $regex: query },
-  }).limit(pageSize);
+  })
+    .skip(startIndex)
+    .limit(pageSize);
 
-  if (!found)
+  if (!products)
     return res
       .status(500)
       .send("Oops there might be something wrong !, try again");
 
-  res.send(found);
+  let page = current + 1;
+
+  const response = {
+    products,
+    page,
+  };
+  res.send(response);
+});
+
+productRoute.get("/outOfStock/:stock_p", async (req, res) => {
+  const { stock_p } = req.params;
+  const { current, startIndex } = paginate(stock_p, pageSize, 0);
+
+  const products = await Product.find({ numberInStock: 0 })
+    .select(["-transactions", "-__v"])
+    .skip(startIndex)
+    .limit(pageSize);
+  if (!products) return res.status(500).send("oops try again,Appologies..... ");
+
+  let page = current + 1;
+
+  const response = {
+    products,
+    page,
+  };
+  res.send(response);
+});
+
+productRoute.get("/genre/:genre_id/:genre_p", async (req, res) => {
+  const { genre_p, genre_id } = req.params;
+  const { current, startIndex } = paginate(genre_p, pageSize, 0);
+
+  const products = await Product.find({ "genre._id": genre_id })
+    .select(["-transactions", "-__v"])
+    .skip(startIndex)
+    .limit(pageSize);
+  if (!products) return res.status(500).send("oops try again,Appologies..... ");
+
+  let page = current + 1;
+
+  const response = {
+    products,
+    page,
+  };
+  res.send(response);
 });
 
 productRoute.post("/", login, async (req, res) => {

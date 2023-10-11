@@ -5,5 +5,5 @@ exports.paginate = function (current_p, pageSize, total) {
 
   const startIndex = (current - 1) * size;
   const last_page = Math.ceil(_total / size);
-  return { startIndex, last_page };
+  return { current, startIndex, last_page };
 };
