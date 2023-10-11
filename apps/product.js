@@ -7,11 +7,11 @@ const fs = require("node:fs");
 const config = require("config");
 const login = require("../middleware/auth");
 const { generateThumb } = require("../utils/gen/thumbnail");
+const pageSize = 3;
 
 productRoute.get("/:current_p", login, async (req, res) => {
   // validate user login
   const current_p = parseInt(req.params.current_p);
-  const pageSize = 3;
   const startIndex = (current_p - 1) * pageSize;
 
   const products = await Product.find()
@@ -40,7 +40,7 @@ productRoute.get("/search/:name", async (req, res) => {
 
   const found = await Product.find({
     name: { $regex: query },
-  });
+  }).limit(pageSize);
 
   if (!found)
     return res
