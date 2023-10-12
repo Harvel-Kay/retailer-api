@@ -38,69 +38,6 @@ productRoute.get("/:current_p", login, async (req, res) => {
   res.send(response);
 });
 
-productRoute.get("/search/:name/:search_p", async (req, res) => {
-  const { name, search_p } = req.params;
-  const query = new RegExp(name, "i");
-
-  const { current, startIndex } = paginate(search_p, pageSize, 0);
-  const products = await Product.find({
-    name: { $regex: query },
-  })
-    .skip(startIndex)
-    .limit(pageSize);
-
-  if (!products)
-    return res
-      .status(500)
-      .send("Oops there might be something wrong !, try again");
-
-  let page = current + 1;
-
-  const response = {
-    products,
-    page,
-  };
-  res.send(response);
-});
-
-productRoute.get("/outOfStock/:stock_p", async (req, res) => {
-  const { stock_p } = req.params;
-  const { current, startIndex } = paginate(stock_p, pageSize, 0);
-
-  const products = await Product.find({ numberInStock: 0 })
-    .select(["-transactions", "-__v"])
-    .skip(startIndex)
-    .limit(pageSize);
-  if (!products) return res.status(500).send("oops try again,Appologies..... ");
-
-  let page = current + 1;
-
-  const response = {
-    products,
-    page,
-  };
-  res.send(response);
-});
-
-productRoute.get("/genre/:genre_id/:genre_p", async (req, res) => {
-  const { genre_p, genre_id } = req.params;
-  const { current, startIndex } = paginate(genre_p, pageSize, 0);
-
-  const products = await Product.find({ "genre._id": genre_id })
-    .select(["-transactions", "-__v"])
-    .skip(startIndex)
-    .limit(pageSize);
-  if (!products) return res.status(500).send("oops try again,Appologies..... ");
-
-  let page = current + 1;
-
-  const response = {
-    products,
-    page,
-  };
-  res.send(response);
-});
-
 productRoute.post("/", login, async (req, res) => {
   const { error } = validateProduct(req.body);
   if (error) return res.status(400).send(error.details[0].message);

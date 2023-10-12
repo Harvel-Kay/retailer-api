@@ -11,6 +11,7 @@ const productRoute = require("./product");
 const saleRoute = require("./sales");
 const tagRoute = require("./tags");
 const sumRoute = require("./summary");
+const filterApp = require("./filter");
 
 module.exports = function (app) {
   return (
@@ -32,6 +33,7 @@ module.exports = function (app) {
     app.use("/retail/sales", saleRoute),
     app.use("/retail/summary", sumRoute),
     app.use("/retail/tags", tagRoute),
+    app.use("/retail/filter", filterApp),
     app.use(error_handler)
   );
 };
