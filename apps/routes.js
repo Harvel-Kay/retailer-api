@@ -12,6 +12,7 @@ const saleRoute = require("./sales");
 const tagRoute = require("./tags");
 const sumRoute = require("./summary");
 const filterApp = require("./filter");
+const jsonApp = require("./jsonPh");
 
 module.exports = function (app) {
   return (
@@ -34,6 +35,7 @@ module.exports = function (app) {
     app.use("/retail/summary", sumRoute),
     app.use("/retail/tags", tagRoute),
     app.use("/retail/filter", filterApp),
+    app.use("/retail/json", jsonApp),
     app.use(error_handler)
   );
 };
