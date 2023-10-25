@@ -9,11 +9,13 @@ registerRoute.post("/", async (req, res) => {
   const { error } = validateUser(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  const { username: u_name, phone } = req.body;
+  const { username: u_name, confirm, password, phone } = req.body;
   const nameTaken = await User.findOne({ username: case_it(u_name) });
   const phoneTaken = await User.findOne({ phone: { $eq: phone } });
 
   if (nameTaken) return res.status(400).send("Username is taken");
+  if (password !== confirm)
+    return res.status(400).send("Passwords didnt match");
   if (phoneTaken) return res.status(400).send("Phone is taken");
 
   const error_2 = validNumber({ name: "phone", value: phone }, {});

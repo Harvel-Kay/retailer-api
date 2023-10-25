@@ -5,40 +5,10 @@ const { Genre } = require("../models/genre");
 const productRoute = require("../utils/gen/miniApp")();
 const fs = require("node:fs");
 const config = require("config");
-const login = require("../middleware/auth");
 const { generateThumb } = require("../utils/gen/thumbnail");
-const { paginate } = require("../utils/gen/paginator");
-const pageSize = 3;
+const admin = require("../middleware/admin");
 
-productRoute.get("/:current_p", login, async (req, res) => {
-  // validate user login
-  const { current_p } = req.params;
-  const total = await Product.countDocuments();
-  const { current, startIndex, last_page } = paginate(
-    current_p,
-    pageSize,
-    total
-  );
-
-  const products = await Product.find()
-    .select(["-transactions", "-__v"])
-    .skip(startIndex)
-    .limit(pageSize);
-  if (!products || !total)
-    return res.status(500).send("oops try again,Appologies..... ");
-
-  let page = 1;
-  if (last_page !== 1) page = current + 1;
-
-  const response = {
-    products,
-    page,
-    last_page,
-  };
-  res.send(response);
-});
-
-productRoute.post("/", login, async (req, res) => {
+productRoute.post("/", admin, async (req, res) => {
   const { error } = validateProduct(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -66,7 +36,7 @@ productRoute.post("/", login, async (req, res) => {
   res.send(newProduct);
 });
 
-productRoute.put("/:prod_id", login, async (req, res) => {
+productRoute.put("/:prod_id", admin, async (req, res) => {
   // validate user permisions
 
   const { numberInStock, name, price } = req.body;
@@ -92,7 +62,7 @@ productRoute.put("/:prod_id", login, async (req, res) => {
   res.send(updated);
 });
 
-productRoute.delete("/:prod_id", login, async (req, res) => {
+productRoute.delete("/:prod_id", admin, async (req, res) => {
   // validate user permissions....
   if (!mongoose.isValidObjectId(req.params.prod_id))
     return res.status(400).send("Invalid product");

@@ -2,20 +2,18 @@ const login = require("../middleware/auth");
 const { Product } = require("../models/product");
 const { validateSales, Sale } = require("../models/sale");
 const { User } = require("../models/user");
-const Joi = require('joi');
-const validDate  = require("../utils/date");
+const Joi = require("joi");
+const validDate = require("../utils/date");
 const admin = require("../middleware/admin");
 
 const saleRoute = require("../utils/gen/miniApp")();
 
-saleRoute.get('/', async (req, res) => {
-  const sales = await Sale.find()
-  res.send(sales)
-})
+saleRoute.get("/", async (req, res) => {
+  const sales = await Sale.find();
+  res.send(sales);
+});
 
-
-
-saleRoute.post("/", login, async (req, res) => {
+saleRoute.post("/", async (req, res) => {
   // validate user
   const { error } = validateSales(req.body);
   if (error) return res.status(400).send(error.details[0].message);
@@ -56,9 +54,4 @@ saleRoute.post("/", login, async (req, res) => {
   res.send(saved);
 });
 
-
-
-
 module.exports = saleRoute;
-
-

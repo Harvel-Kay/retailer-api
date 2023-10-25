@@ -7,6 +7,7 @@ const config = require("config");
 const userJoiSchema = Joi.object({
   username: Joi.string().min(3).max(20).trim().required(),
   password: Joi.string().min(8).max(1024).required(),
+  confirm: Joi.string().min(8).max(1024),
   phone: Joi.string().min(10).max(20).required(),
 });
 
@@ -52,7 +53,12 @@ const userSchema = new mongoose.Schema({
 
 userSchema.methods.getToken = function () {
   return jwt.sign(
-    { _id: this._id, phone: this.phone, isAdmin: this.isAdmin ,username:this.username},
+    {
+      _id: this._id,
+      phone: this.phone,
+      isAdmin: this.isAdmin,
+      username: this.username,
+    },
     config.get("pass_key")
   );
 };

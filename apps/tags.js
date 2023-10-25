@@ -4,11 +4,9 @@ const multer = require("multer");
 const tracker = require("../log/logger");
 const config = require("config");
 const _ = require("lodash");
-const login = require("../middleware/auth");
 const dir = "public/tags";
-const sharp = require("sharp");
-const fs = require("fs");
 const { generateThumb } = require("../utils/gen/thumbnail");
+const admin = require("../middleware/admin");
 
 const storage = multer.diskStorage({
   destination: dir,
@@ -23,7 +21,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-tagRoute.post("/", login, upload.single("prod_tag"), async (req, res) => {
+tagRoute.post("/", admin, upload.single("prod_tag"), async (req, res) => {
   // validate user
   const { file } = req;
   const public_url = config.get("public_url");

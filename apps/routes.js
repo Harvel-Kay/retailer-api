@@ -11,8 +11,8 @@ const productRoute = require("./product");
 const saleRoute = require("./sales");
 const tagRoute = require("./tags");
 const sumRoute = require("./summary");
+const newItemsApp = require("./newitems");
 const filterApp = require("./filter");
-const jsonApp = require("./jsonPh");
 
 module.exports = function (app) {
   return (
@@ -30,12 +30,11 @@ module.exports = function (app) {
     app.use("/retail/login", loginRoute),
     app.use("/retail/register", registerRoute),
     app.use("/retail/genres", genreRoute),
-    app.use("/retail/products", productRoute),
+    app.use("/retail/products", [productRoute, filterApp]),
     app.use("/retail/sales", saleRoute),
     app.use("/retail/summary", sumRoute),
     app.use("/retail/tags", tagRoute),
-    app.use("/retail/filter", filterApp),
-    app.use("/retail/json", jsonApp),
+    app.use("/retail/new", newItemsApp),
     app.use(error_handler)
   );
 };

@@ -2,15 +2,16 @@ const { default: mongoose } = require("mongoose");
 const { Genre, validateGenre } = require("../models/genre");
 const { case_it } = require("../utils/gen/str");
 const login = require("../middleware/auth");
+const admin = require("../middleware/admin");
 
 const genreRoute = require("../utils/gen/miniApp")();
 
-genreRoute.get("/", login, async (req, res) => {
+genreRoute.get("/", async (req, res) => {
   const genres = await Genre.find();
   res.send(genres);
 });
 
-genreRoute.post("/", login, async (req, res) => {
+genreRoute.post("/", admin, async (req, res) => {
   const payload = { ...req.body };
   const { error } = validateGenre(payload);
   if (error) return res.status(400).send(error.details[0].message);
@@ -25,7 +26,7 @@ genreRoute.post("/", login, async (req, res) => {
   res.send(newGenre);
 });
 
-genreRoute.put("/:genre_id", login, async (req, res) => {
+genreRoute.put("/:genre_id", admin, async (req, res) => {
   // authenticate user
   const payload = { ...req.body };
   const genre_id = req.params.genre_id;
@@ -48,7 +49,7 @@ genreRoute.put("/:genre_id", login, async (req, res) => {
   res.send(updated);
 });
 
-genreRoute.delete("/:genre_id", login, async (req, res) => {
+genreRoute.delete("/:genre_id", admin, async (req, res) => {
   const genre_id = req.params.genre_id;
   // validate user permisions & authenticate
   if (!mongoose.isValidObjectId(genre_id))
