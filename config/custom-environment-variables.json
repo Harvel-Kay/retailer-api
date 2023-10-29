@@ -1,4 +1,6 @@
 {
   "db_uri":"db_uri",
-  "pass_key": "pass_key"
+  "pass_key": "pass_key",
+  "mail_account":"mail_account",
+  "mail_pass":"mail_pass"
 }

@@ -45,7 +45,7 @@ productRoute.put("/:prod_id", admin, async (req, res) => {
   const exists = await Product.findById(req.params.prod_id);
   if (!exists) return res.status(404).send("Product doesn't exist");
 
-  let tnail_p = "";
+  let tnail_p = exists.thumbnail;
   if (!exists.thumbnail) {
     // Generate Thumbnail
     const file_path = exists.tag.replace(public_url, "public");

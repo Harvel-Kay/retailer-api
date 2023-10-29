@@ -15,10 +15,9 @@ filterApp.get("/:current_p", async (req, res) => {
   //Calculating the count of documents depending on some route param criteria :)
   if (query && genre_id) {
     const name = new RegExp(query, "i");
-    total = await Product.find({
-      name: { $regex: name },
-      "genre._id": genre_id,
-    }).countDocuments();
+    total = await Product.find()
+      .or([{ name: { $regex: name } }, { "genre._id": genre_id }])
+      .countDocuments();
   } else if (query) {
     const name = new RegExp(query, "i");
     total = await Product.find({ name: { $regex: name } }).countDocuments();
@@ -34,13 +33,13 @@ filterApp.get("/:current_p", async (req, res) => {
   // Retrieving the data now :)
   if (query && genre_id) {
     const name = new RegExp(query, "i");
-    products = await Product({
-      name: { $regex: name },
-      "genre._id": genre_id,
-    })
+
+    products = await Product.find()
+      .or([{ name: { $regex: name } }, { "genre._id": genre_id }])
       .select(["-transactions", "-__v"])
       .skip(startIndex)
       .limit(pageSize);
+    console.log("Both QS data are truthy ");
   } else if (query) {
     const name = new RegExp(query, "i");
     products = await Product.find({ name: { $regex: name } })
@@ -63,11 +62,8 @@ filterApp.get("/:current_p", async (req, res) => {
       .skip(startIndex)
       .limit(pageSize);
 
-  if (!products || !total)
-    return res.status(500).send("oops try again,Appologies..... ");
-
   const response = {
-    products,
+    products: products || [],
     next,
     last_page,
   };

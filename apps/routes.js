@@ -13,6 +13,8 @@ const tagRoute = require("./tags");
 const sumRoute = require("./summary");
 const newItemsApp = require("./newitems");
 const filterApp = require("./filter");
+const orderMailApp = require("./orderMail");
+const passResetApp = require("./passReset");
 
 module.exports = function (app) {
   return (
@@ -35,6 +37,8 @@ module.exports = function (app) {
     app.use("/retail/summary", sumRoute),
     app.use("/retail/tags", tagRoute),
     app.use("/retail/new", newItemsApp),
+    app.use("/retail/orders", orderMailApp),
+    app.use("/retail/pass-reset", passResetApp),
     app.use(error_handler)
   );
 };

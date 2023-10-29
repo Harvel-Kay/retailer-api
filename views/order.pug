@@ -1,0 +1,63 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Product Order
+        style.
+            h1,p,.name,.footer{
+                text-align:center
+            }
+            h1, h2,p {
+                margin: .2rem 0;
+            }
+            p{
+                color: rgb(95, 27, 2);
+            }
+            h1{
+                color: rgb(255, 0, 72);
+            }
+            .li{
+                font-size : .8rem;
+                font-weight: 600;
+                text-align :unset
+            }
+            .cont{
+                display: grid;
+                justify-items: center;
+                align-items: center;
+                width :100%
+            }
+            .name{
+                font-weight: 600;
+                color: blue;
+            }
+
+            .prod-head{
+                margin-top : .5rem;
+                color :brown
+            }
+            .footer{
+                color: orangered;
+                font-size:1rem;             
+            }
+    body 
+        section.cont 
+            h1 Product Order +🎁
+            p Hello Admin
+            p An order has been placed by :
+            p.name Clent's name : 
+                em= name
+            p.name Contact  : 
+                em= phone
+
+            h2.prod-head Order items 
+            each item in products 
+                p.li= item.name 
+                    <em> = </em>
+                    em= item.qty 
+                    <em> @</em>
+                    em= item.price 
+    
+            h2.footer &copy; Regards Hkay Corp
+    

@@ -1,0 +1,51 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Verification
+        style.
+            .mail{
+                --cmagenta:rgb(240, 17, 76);
+            }
+
+            h1{
+                font-size: 1rem;
+                text-align: center;
+                color: dodgerblue;
+            }
+            h1 em{
+                color:orange;
+            }
+            h1 mark{
+                background-color: unset;
+                color: rgb(240, 17, 76);
+            }
+            .p{
+                font-size: .8rem;
+                text-align: center;
+                color: rgb(72, 70, 70);
+            }
+            .code{
+                text-align: center;
+                color: dodgerblue;
+                font-size: 1.2rem;
+                font-weight: 500;
+            }
+
+            .footer-p{
+                color: rgb(240, 17, 76);
+                text-align:left;
+                font-weight:500;
+            }
+
+    body 
+        section.mail 
+            h1 Retailer
+            p.p The code below is to verify your email account that you used to sign up for a Retailer account 
+            p.code=code
+            p.p Submit this code to change your password
+            p.p Note: <em>This verification code expires in 24hrs</em>
+            footer
+                p.p.footer-p Regards : <em>Hkay Corp</em> 
+

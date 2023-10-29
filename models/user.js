@@ -6,6 +6,7 @@ const config = require("config");
 
 const userJoiSchema = Joi.object({
   username: Joi.string().min(3).max(20).trim().required(),
+  email: Joi.string().email().min(3).max(100).required(),
   password: Joi.string().min(8).max(1024).required(),
   confirm: Joi.string().min(8).max(1024),
   phone: Joi.string().min(10).max(20).required(),
@@ -16,6 +17,12 @@ function validateUser(obj) {
 }
 
 const userSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    minLength: [3, "Email is too short"],
+    maxLength: [100, "Email is too long"],
+    required: true,
+  },
   username: {
     type: String,
     minLength: [3, "Username is too short"],
@@ -55,6 +62,7 @@ userSchema.methods.getToken = function () {
   return jwt.sign(
     {
       _id: this._id,
+      email: this.email,
       phone: this.phone,
       isAdmin: this.isAdmin,
       username: this.username,

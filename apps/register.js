@@ -9,11 +9,13 @@ registerRoute.post("/", async (req, res) => {
   const { error } = validateUser(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  const { username: u_name, confirm, password, phone } = req.body;
+  const { username: u_name, email, confirm, password, phone } = req.body;
   const nameTaken = await User.findOne({ username: case_it(u_name) });
-  const phoneTaken = await User.findOne({ phone: { $eq: phone } });
+  const emailTaken = await User.findOne({ email });
+  const phoneTaken = await User.findOne({ phone });
 
   if (nameTaken) return res.status(400).send("Username is taken");
+  if (emailTaken) return res.status(400).send("Email already registered");
   if (password !== confirm)
     return res.status(400).send("Passwords didnt match");
   if (phoneTaken) return res.status(400).send("Phone is taken");
@@ -24,7 +26,9 @@ registerRoute.post("/", async (req, res) => {
 
   const salt = await bcrypt.genSalt(10);
 
-  const newbie = new User(_.pick(req.body, ["username", "password", "phone"]));
+  const newbie = new User(
+    _.pick(req.body, ["username", "email", "password", "phone"])
+  );
   newbie.username = case_it(u_name);
   newbie.password = await bcrypt.hash(newbie.password, salt);
   await newbie.save();

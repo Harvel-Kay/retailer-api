@@ -1,0 +1,154 @@
+[31merror[39m: unhandledRejection: views/order.pug:17:9
+    15|             h1{
+    16|             color: rgb(255, 0, 72);
+  > 17|         }
+----------------^
+    18| 
+    19|         .cont{
+    20|             display: flex;
+
+unexpected text "}
+
+  "
+Error: views/order.pug:17:9
+    15|             h1{
+    16|             color: rgb(255, 0, 72);
+  > 17|         }
+----------------^
+    18| 
+    19|         .cont{
+    20|             display: flex;
+
+unexpected text "}
+
+  "
+    at makeError (C:\Users\Harvel Kay\retailer-api\node_modules\pug-error\index.js:34:13)
+    at Lexer.error (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:62:15)
+    at Lexer.fail (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1629:10)
+    at Lexer.advance (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1694:12)
+    at Lexer.callLexerFunction (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1647:23)
+    at Lexer.getTokens (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1706:12)
+    at lex (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:12:42)
+    at Object.lex (C:\Users\Harvel Kay\retailer-api\node_modules\pug\lib\index.js:104:9)
+    at Function.loadString [as string] (C:\Users\Harvel Kay\retailer-api\node_modules\pug-load\index.js:53:24)
+    at compileBody (C:\Users\Harvel Kay\retailer-api\node_modules\pug\lib\index.js:82:18) {"date":"Sun Oct 29 2023 13:33:17 GMT+0300 (East Africa Time)","error":{"code":"PUG:UNEXPECTED_TEXT","column":9,"filename":"views/order.pug","line":17,"msg":"unexpected text \"}\n\n  \""},"exception":true,"os":{"loadavg":[0,0,0],"uptime":4137.875},"process":{"argv":["C:\\Program Files\\nodejs\\node.exe","C:\\Users\\Harvel Kay\\retailer-api\\index.js"],"cwd":"C:\\Users\\Harvel Kay\\retailer-api","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18271393,"external":20587401,"heapTotal":34209792,"heapUsed":31097120,"rss":68517888},"pid":10112,"uid":null,"version":"v20.5.1"},"stack":"Error: views/order.pug:17:9\n    15|             h1{\n    16|             color: rgb(255, 0, 72);\n  > 17|         }\n----------------^\n    18| \n    19|         .cont{\n    20|             display: flex;\n\nunexpected text \"}\n\n  \"\n    at makeError (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-error\\index.js:34:13)\n    at Lexer.error (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:62:15)\n    at Lexer.fail (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1629:10)\n    at Lexer.advance (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1694:12)\n    at Lexer.callLexerFunction (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1647:23)\n    at Lexer.getTokens (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1706:12)\n    at lex (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:12:42)\n    at Object.lex (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug\\lib\\index.js:104:9)\n    at Function.loadString [as string] (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-load\\index.js:53:24)\n    at compileBody (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug\\lib\\index.js:82:18)","trace":[{"column":13,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-error\\index.js","function":"makeError","line":34,"method":null,"native":false},{"column":15,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.error","line":62,"method":"error","native":false},{"column":10,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.fail","line":1629,"method":"fail","native":false},{"column":12,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.advance","line":1694,"method":"advance","native":false},{"column":23,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.callLexerFunction","line":1647,"method":"callLexerFunction","native":false},{"column":12,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.getTokens","line":1706,"method":"getTokens","native":false},{"column":42,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"lex","line":12,"method":null,"native":false},{"column":9,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug\\lib\\index.js","function":"Object.lex","line":104,"method":"lex","native":false},{"column":24,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-load\\index.js","function":"Function.loadString [as string]","line":53,"method":"loadString [as string]","native":false},{"column":18,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug\\lib\\index.js","function":"compileBody","line":82,"method":null,"native":false}]}
+[31merror[39m: unhandledRejection: views/order.pug:50:39
+    48|                 ul 
+    49|                     each item in products 
+  > 50|                         li=item.name  em=item.qty
+----------------------------------------------^
+    51|     
+    52|                     
+    53|             h2.footer &copy; Regards Hkay Corp
+
+Syntax Error: Unexpected token
+Error: views/order.pug:50:39
+    48|                 ul 
+    49|                     each item in products 
+  > 50|                         li=item.name  em=item.qty
+----------------------------------------------^
+    51|     
+    52|                     
+    53|             h2.footer &copy; Regards Hkay Corp
+
+Syntax Error: Unexpected token
+    at makeError (C:\Users\Harvel Kay\retailer-api\node_modules\pug-error\index.js:34:13)
+    at Lexer.error (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:62:15)
+    at Lexer.assertExpression (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:96:12)
+    at Lexer.code (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1180:28)
+    at Lexer.callLexerFunction (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1647:23)
+    at Lexer.advance (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1682:12)
+    at Lexer.callLexerFunction (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1647:23)
+    at Lexer.getTokens (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1706:12)
+    at lex (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:12:42)
+    at Object.lex (C:\Users\Harvel Kay\retailer-api\node_modules\pug\lib\index.js:104:9) {"date":"Sun Oct 29 2023 13:45:04 GMT+0300 (East Africa Time)","error":{"code":"PUG:SYNTAX_ERROR","column":39,"filename":"views/order.pug","line":50,"msg":"Syntax Error: Unexpected token"},"exception":true,"os":{"loadavg":[0,0,0],"uptime":4844.093},"process":{"argv":["C:\\Program Files\\nodejs\\node.exe","C:\\Users\\Harvel Kay\\retailer-api\\index.js"],"cwd":"C:\\Users\\Harvel Kay\\retailer-api","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18303571,"external":20634847,"heapTotal":37355520,"heapUsed":35489184,"rss":75157504},"pid":9764,"uid":null,"version":"v20.5.1"},"stack":"Error: views/order.pug:50:39\n    48|                 ul \n    49|                     each item in products \n  > 50|                         li=item.name  em=item.qty\n----------------------------------------------^\n    51|     \n    52|                     \n    53|             h2.footer &copy; Regards Hkay Corp\n\nSyntax Error: Unexpected token\n    at makeError (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-error\\index.js:34:13)\n    at Lexer.error (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:62:15)\n    at Lexer.assertExpression (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:96:12)\n    at Lexer.code (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1180:28)\n    at Lexer.callLexerFunction (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1647:23)\n    at Lexer.advance (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1682:12)\n    at Lexer.callLexerFunction (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1647:23)\n    at Lexer.getTokens (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1706:12)\n    at lex (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:12:42)\n    at Object.lex (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug\\lib\\index.js:104:9)","trace":[{"column":13,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-error\\index.js","function":"makeError","line":34,"method":null,"native":false},{"column":15,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.error","line":62,"method":"error","native":false},{"column":12,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.assertExpression","line":96,"method":"assertExpression","native":false},{"column":28,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.code","line":1180,"method":"code","native":false},{"column":23,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.callLexerFunction","line":1647,"method":"callLexerFunction","native":false},{"column":12,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.advance","line":1682,"method":"advance","native":false},{"column":23,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.callLexerFunction","line":1647,"method":"callLexerFunction","native":false},{"column":12,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.getTokens","line":1706,"method":"getTokens","native":false},{"column":42,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"lex","line":12,"method":null,"native":false},{"column":9,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug\\lib\\index.js","function":"Object.lex","line":104,"method":"lex","native":false}]}
+[31merror[39m: unhandledRejection: views/order.pug:49:33
+    47|             h2 Order items 
+    48|             each item in products 
+  > 49|                 p.li= item.name : 
+----------------------------------------^
+    50|                     em= item.qty 
+    51|     
+    52|                     
+
+Syntax Error: Unexpected token
+Error: views/order.pug:49:33
+    47|             h2 Order items 
+    48|             each item in products 
+  > 49|                 p.li= item.name : 
+----------------------------------------^
+    50|                     em= item.qty 
+    51|     
+    52|                     
+
+Syntax Error: Unexpected token
+    at makeError (C:\Users\Harvel Kay\retailer-api\node_modules\pug-error\index.js:34:13)
+    at Lexer.error (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:62:15)
+    at Lexer.assertExpression (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:96:12)
+    at Lexer.code (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1180:28)
+    at Lexer.callLexerFunction (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1647:23)
+    at Lexer.advance (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1682:12)
+    at Lexer.callLexerFunction (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1647:23)
+    at Lexer.getTokens (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1706:12)
+    at lex (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:12:42)
+    at Object.lex (C:\Users\Harvel Kay\retailer-api\node_modules\pug\lib\index.js:104:9) {"date":"Sun Oct 29 2023 14:01:50 GMT+0300 (East Africa Time)","error":{"code":"PUG:SYNTAX_ERROR","column":33,"filename":"views/order.pug","line":49,"msg":"Syntax Error: Unexpected token"},"exception":true,"os":{"loadavg":[0,0,0],"uptime":5850.171},"process":{"argv":["C:\\Program Files\\nodejs\\node.exe","C:\\Users\\Harvel Kay\\retailer-api\\index.js"],"cwd":"C:\\Users\\Harvel Kay\\retailer-api","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18303548,"external":20647663,"heapTotal":37355520,"heapUsed":35286256,"rss":65732608},"pid":10424,"uid":null,"version":"v20.5.1"},"stack":"Error: views/order.pug:49:33\n    47|             h2 Order items \n    48|             each item in products \n  > 49|                 p.li= item.name : \n----------------------------------------^\n    50|                     em= item.qty \n    51|     \n    52|                     \n\nSyntax Error: Unexpected token\n    at makeError (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-error\\index.js:34:13)\n    at Lexer.error (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:62:15)\n    at Lexer.assertExpression (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:96:12)\n    at Lexer.code (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1180:28)\n    at Lexer.callLexerFunction (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1647:23)\n    at Lexer.advance (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1682:12)\n    at Lexer.callLexerFunction (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1647:23)\n    at Lexer.getTokens (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1706:12)\n    at lex (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:12:42)\n    at Object.lex (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug\\lib\\index.js:104:9)","trace":[{"column":13,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-error\\index.js","function":"makeError","line":34,"method":null,"native":false},{"column":15,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.error","line":62,"method":"error","native":false},{"column":12,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.assertExpression","line":96,"method":"assertExpression","native":false},{"column":28,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.code","line":1180,"method":"code","native":false},{"column":23,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.callLexerFunction","line":1647,"method":"callLexerFunction","native":false},{"column":12,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.advance","line":1682,"method":"advance","native":false},{"column":23,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.callLexerFunction","line":1647,"method":"callLexerFunction","native":false},{"column":12,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.getTokens","line":1706,"method":"getTokens","native":false},{"column":42,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"lex","line":12,"method":null,"native":false},{"column":9,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug\\lib\\index.js","function":"Object.lex","line":104,"method":"lex","native":false}]}
+[31merror[39m: unhandledRejection: views/order.pug:49:33
+    47|             h2 Order items 
+    48|             each item in products 
+  > 49|                 p.li= item.name '=>'
+----------------------------------------^
+    50|                     em= item.qty 
+    51|     
+    52|                     
+
+Syntax Error: Unexpected token
+Error: views/order.pug:49:33
+    47|             h2 Order items 
+    48|             each item in products 
+  > 49|                 p.li= item.name '=>'
+----------------------------------------^
+    50|                     em= item.qty 
+    51|     
+    52|                     
+
+Syntax Error: Unexpected token
+    at makeError (C:\Users\Harvel Kay\retailer-api\node_modules\pug-error\index.js:34:13)
+    at Lexer.error (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:62:15)
+    at Lexer.assertExpression (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:96:12)
+    at Lexer.code (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1180:28)
+    at Lexer.callLexerFunction (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1647:23)
+    at Lexer.advance (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1682:12)
+    at Lexer.callLexerFunction (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1647:23)
+    at Lexer.getTokens (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1706:12)
+    at lex (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:12:42)
+    at Object.lex (C:\Users\Harvel Kay\retailer-api\node_modules\pug\lib\index.js:104:9) {"date":"Sun Oct 29 2023 14:03:21 GMT+0300 (East Africa Time)","error":{"code":"PUG:SYNTAX_ERROR","column":33,"filename":"views/order.pug","line":49,"msg":"Syntax Error: Unexpected token"},"exception":true,"os":{"loadavg":[0,0,0],"uptime":5941.406},"process":{"argv":["C:\\Program Files\\nodejs\\node.exe","C:\\Users\\Harvel Kay\\retailer-api\\index.js"],"cwd":"C:\\Users\\Harvel Kay\\retailer-api","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18270743,"external":20583908,"heapTotal":33423360,"heapUsed":30788280,"rss":66412544},"pid":6640,"uid":null,"version":"v20.5.1"},"stack":"Error: views/order.pug:49:33\n    47|             h2 Order items \n    48|             each item in products \n  > 49|                 p.li= item.name '=>'\n----------------------------------------^\n    50|                     em= item.qty \n    51|     \n    52|                     \n\nSyntax Error: Unexpected token\n    at makeError (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-error\\index.js:34:13)\n    at Lexer.error (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:62:15)\n    at Lexer.assertExpression (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:96:12)\n    at Lexer.code (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1180:28)\n    at Lexer.callLexerFunction (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1647:23)\n    at Lexer.advance (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1682:12)\n    at Lexer.callLexerFunction (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1647:23)\n    at Lexer.getTokens (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1706:12)\n    at lex (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:12:42)\n    at Object.lex (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug\\lib\\index.js:104:9)","trace":[{"column":13,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-error\\index.js","function":"makeError","line":34,"method":null,"native":false},{"column":15,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.error","line":62,"method":"error","native":false},{"column":12,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.assertExpression","line":96,"method":"assertExpression","native":false},{"column":28,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.code","line":1180,"method":"code","native":false},{"column":23,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.callLexerFunction","line":1647,"method":"callLexerFunction","native":false},{"column":12,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.advance","line":1682,"method":"advance","native":false},{"column":23,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.callLexerFunction","line":1647,"method":"callLexerFunction","native":false},{"column":12,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.getTokens","line":1706,"method":"getTokens","native":false},{"column":42,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"lex","line":12,"method":null,"native":false},{"column":9,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug\\lib\\index.js","function":"Object.lex","line":104,"method":"lex","native":false}]}
+[31merror[39m: unhandledRejection: views/order.pug:48:45
+    46|             h2 Order items 
+    47|             each item in products 
+  > 48|                 p.li= item.name <em>space </em>
+----------------------------------------------------^
+    49|                     em= item.qty 
+    50|     
+    51|             h2.footer &copy; Regards Hkay Corp
+
+Syntax Error: Unterminated regular expression
+Error: views/order.pug:48:45
+    46|             h2 Order items 
+    47|             each item in products 
+  > 48|                 p.li= item.name <em>space </em>
+----------------------------------------------------^
+    49|                     em= item.qty 
+    50|     
+    51|             h2.footer &copy; Regards Hkay Corp
+
+Syntax Error: Unterminated regular expression
+    at makeError (C:\Users\Harvel Kay\retailer-api\node_modules\pug-error\index.js:34:13)
+    at Lexer.error (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:62:15)
+    at Lexer.assertExpression (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:96:12)
+    at Lexer.code (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1180:28)
+    at Lexer.callLexerFunction (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1647:23)
+    at Lexer.advance (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1682:12)
+    at Lexer.callLexerFunction (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1647:23)
+    at Lexer.getTokens (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:1706:12)
+    at lex (C:\Users\Harvel Kay\retailer-api\node_modules\pug-lexer\index.js:12:42)
+    at Object.lex (C:\Users\Harvel Kay\retailer-api\node_modules\pug\lib\index.js:104:9) {"date":"Sun Oct 29 2023 14:11:08 GMT+0300 (East Africa Time)","error":{"code":"PUG:SYNTAX_ERROR","column":45,"filename":"views/order.pug","line":48,"msg":"Syntax Error: Unterminated regular expression"},"exception":true,"os":{"loadavg":[0,0,0],"uptime":6408.828},"process":{"argv":["C:\\Program Files\\nodejs\\node.exe","C:\\Users\\Harvel Kay\\retailer-api\\index.js"],"cwd":"C:\\Users\\Harvel Kay\\retailer-api","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18319937,"external":20649158,"heapTotal":39190528,"heapUsed":35974928,"rss":75636736},"pid":7356,"uid":null,"version":"v20.5.1"},"stack":"Error: views/order.pug:48:45\n    46|             h2 Order items \n    47|             each item in products \n  > 48|                 p.li= item.name <em>space </em>\n----------------------------------------------------^\n    49|                     em= item.qty \n    50|     \n    51|             h2.footer &copy; Regards Hkay Corp\n\nSyntax Error: Unterminated regular expression\n    at makeError (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-error\\index.js:34:13)\n    at Lexer.error (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:62:15)\n    at Lexer.assertExpression (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:96:12)\n    at Lexer.code (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1180:28)\n    at Lexer.callLexerFunction (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1647:23)\n    at Lexer.advance (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1682:12)\n    at Lexer.callLexerFunction (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1647:23)\n    at Lexer.getTokens (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:1706:12)\n    at lex (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js:12:42)\n    at Object.lex (C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug\\lib\\index.js:104:9)","trace":[{"column":13,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-error\\index.js","function":"makeError","line":34,"method":null,"native":false},{"column":15,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.error","line":62,"method":"error","native":false},{"column":12,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.assertExpression","line":96,"method":"assertExpression","native":false},{"column":28,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.code","line":1180,"method":"code","native":false},{"column":23,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.callLexerFunction","line":1647,"method":"callLexerFunction","native":false},{"column":12,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.advance","line":1682,"method":"advance","native":false},{"column":23,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.callLexerFunction","line":1647,"method":"callLexerFunction","native":false},{"column":12,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"Lexer.getTokens","line":1706,"method":"getTokens","native":false},{"column":42,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug-lexer\\index.js","function":"lex","line":12,"method":null,"native":false},{"column":9,"file":"C:\\Users\\Harvel Kay\\retailer-api\\node_modules\\pug\\lib\\index.js","function":"Object.lex","line":104,"method":"lex","native":false}]}
