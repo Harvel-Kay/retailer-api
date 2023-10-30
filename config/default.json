@@ -1,7 +1,7 @@
 {
   "db_uri":"",
   "pass_key": "",
-  "public_url":"",
+  "public_url":"https://retailer-api-e83054ffcf62.herokuapp.com",
   "page_size":"5",
   "mail_account":"",
   "mail_pass":""
