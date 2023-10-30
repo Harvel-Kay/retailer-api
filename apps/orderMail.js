@@ -26,12 +26,17 @@ orderMailApp.post("/", async (req, res) => {
     html: compiled({ name, phone, products }),
   };
 
+  let error;
   transporter
     .sendMail(options)
-    .then((data) => console.log("Email sent ....."))
-    .catch((err) => console.log("Error sending email ...", err));
+    .then((data) => (error = false))
+    .catch((err) => (error = true));
   //   console.log("Response =>", response);
 
+  if (error)
+    return res
+      .status(500)
+      .send("Order wasn't submitted , Please try again....");
   res.send(
     "Order placed successfully, Please call on the provided number for confirmation and more details"
   );
