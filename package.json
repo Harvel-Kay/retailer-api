@@ -26,7 +26,11 @@
   "description": "\"Shop management\"",
   "main": "index.js",
   "scripts": {
+    "start":"node index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "20.5.1"
   },
   "author": "Harvel",
   "license": "ISC"

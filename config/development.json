@@ -1,3 +1,4 @@
 {
-    "db_uri":"mongodb://127.0.0.1/retail"
+    "db_uri":"mongodb://127.0.0.1/retail",
+    "public_url":"http://localhost:2200"
 }
